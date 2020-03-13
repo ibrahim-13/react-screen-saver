@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import SvgClockComponent from './clock-lib';
+import SvgClockComponent from './svg-clock';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<SvgClockComponent svgStyle={{ height: "80vh", width: "80vh" }} />, document.getElementById('root'));
