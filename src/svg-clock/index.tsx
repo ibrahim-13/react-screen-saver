@@ -33,6 +33,7 @@ const AppInitialState: AppState = {
 type SvgClockComponentProps = {
   svgStyle?: React.CSSProperties,
   wraperDivStyle?: React.CSSProperties,
+  theme?: 'frog' | 'sol' | 'wasp';
 }
 
 const SvgClockComponent: React.FC<SvgClockComponentProps> = (props: SvgClockComponentProps) => {
@@ -85,7 +86,7 @@ const SvgClockComponent: React.FC<SvgClockComponentProps> = (props: SvgClockComp
   }, []);
 
   return (
-    <div style={props.wraperDivStyle} className="clock-container svg-clock-sol">
+    <div style={props.wraperDivStyle} className={`clock-container svg-clock-${props.theme || 'sol'}`}>
       <svg style={props.svgStyle} id="clock" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
         <style>
           {`text {font - family: 'Helvetica Bold', 'Helvetica', sans-serif; font-weight: bold; }`}

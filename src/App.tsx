@@ -5,7 +5,7 @@ import AnimatedBackground from './animated-bg';
 const App: React.FC = () => {
   return (
     <>
-      <SvgClockComponent svgStyle={{ height: "80vh", width: "80vh" }} />
+      <SvgClockComponent svgStyle={{ height: "80vh", width: "80vh" }} theme="sol" />
       <AnimatedBackground />
     </>
   );
