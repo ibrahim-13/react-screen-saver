@@ -1,8 +1,7 @@
 {
-  "name": "svg-clock",
+  "name": "screen-saver-react",
   "version": "0.1.0",
   "private": true,
-  "main": "lib/index.js",
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -11,17 +10,14 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
     "typescript": "~3.7.2"
-  },
-  "peerDependencies": {
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:lib": "rimraf ./lib && tsc -p lib.tsconfig.json",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,8 +35,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "dependencies": {
-    "rimraf": "^3.0.2"
   }
 }
