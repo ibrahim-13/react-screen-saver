@@ -21,3 +21,8 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
+
+### Credits
+
+* Original clock can be found here: [Codepen.io](https://codepen.io/backoefer/pen/WxYbXk)
+* Original background can be found here: [Codepen.io](https://codepen.io/plavookac/pen/QMwObb)
