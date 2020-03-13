@@ -4,7 +4,7 @@ import './index.css';
 import SvgClockComponent from './clock-lib';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<SvgClockComponent />, document.getElementById('root'));
+ReactDOM.render(<SvgClockComponent svgStyle={{ height: "80vh", width: "80vh" }} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -30,7 +30,12 @@ const AppInitialState: AppState = {
   dTri: "M259.076115911649,64.02464348021618L267.7369315913329,144.6166779233966L256,256Z"
 }
 
-function SvgClockComponent() {
+type SvgClockComponentProps = {
+  svgStyle?: React.CSSProperties,
+  wraperDivStyle?: React.CSSProperties,
+}
+
+const SvgClockComponent: React.FC<SvgClockComponentProps> = (props: SvgClockComponentProps) => {
   const handCircle: JSX.Element = (
     <SvgCircle cx="0" cy="0" r="32" className="f1" />
   );
@@ -80,8 +85,8 @@ function SvgClockComponent() {
   }, []);
 
   return (
-    <div className="clock-container svg-clock-sol">
-      <svg id="clock" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+    <div style={props.wraperDivStyle} className="clock-container svg-clock-sol">
+      <svg style={props.svgStyle} id="clock" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
         <style>
           {`text {font - family: 'Helvetica Bold', 'Helvetica', sans-serif; font-weight: bold; }`}
         </style>
@@ -95,6 +100,6 @@ function SvgClockComponent() {
       </svg>
     </div>
   );
-}
+};
 
 export default SvgClockComponent;
