@@ -19,3 +19,16 @@ export function strPad(num: number): string {
   const str = num.toString();
   return str.length > 1 ? str : "0" + str;
 }
+
+export function getWeek(d: number): string {
+  return [
+    "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+  ][d];
+}
+
+export function getMonth(m: number): string {
+  return [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ][m];
+}

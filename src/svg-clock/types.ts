@@ -4,6 +4,10 @@ export type Pos = {
 }
 
 export type ClockTime = {
+  year: string,
+  month: string,
+  week: string,
+  day: string,
   hour: string,
   min: string,
   sec: string,

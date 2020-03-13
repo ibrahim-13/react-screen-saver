@@ -21,9 +21,13 @@ const HandsDisplayStyle: React.CSSProperties = {
 
 const AppInitialState: AppState = {
   time: {
-    hour: "00",
-    min: "00",
-    sec: "00",
+    year: "....",
+    month: "...",
+    week: "...",
+    day: "..",
+    hour: "..",
+    min: "..",
+    sec: "..",
   },
   transformMin: "267.7369,144.6167",
   transformSec: "259.0761,64.0246",
@@ -43,16 +47,25 @@ const SvgClockComponent: React.FC<SvgClockComponentProps> = (props: SvgClockComp
 
   const perFrameRefresh: boolean = false;
 
-  const [ state, setState ] = React.useState<AppState>(AppInitialState);
+  const [state, setState] = React.useState<AppState>(AppInitialState);
   let FrameLastSecond: number = 0;
 
   function draw(): void {
     const now: Date = new Date();
+    const s: number = now.getSeconds();
+
+    if (!perFrameRefresh && s === FrameLastSecond) {
+      window.requestAnimationFrame(draw);
+      return;
+    }
 
     const h: number = now.getHours();
     const m: number = now.getMinutes();
-    const s: number = now.getSeconds();
-    
+    const day: number = now.getDate();
+    const week: number = now.getDay();
+    const month: number = now.getMonth();
+    const year: number = now.getFullYear();
+
     const ms: number = now.getMilliseconds();
     const prog = { ms: ms / 1000, s: 0, m: 0, h: 0 };
     prog.s = (s + prog.ms) / 60;
@@ -63,26 +76,28 @@ const SvgClockComponent: React.FC<SvgClockComponentProps> = (props: SvgClockComp
     const handM: string = utils.stringPos(utils.pos(256, 256, 112, prog.m * -360));
     const tri: string = utils.stringPos(utils.pos(256, 256, 0, prog.h * -360));
 
-    if (perFrameRefresh || s !== FrameLastSecond) {
-      FrameLastSecond = s;
-      setState({
-        time: {
-          hour: utils.strPad(h),
-          min: utils.strPad(m),
-          sec: utils.strPad(s),
-        },
-        transformMin: handM,
-        transformSec: handS,
-        dTri: `M${handS}L${handM}L${tri}Z`,
-      });
-    }
+    FrameLastSecond = s;
+    setState({
+      time: {
+        year: year.toString(),
+        month: utils.getMonth(month),
+        week: utils.getWeek(week),
+        day: day.toString(),
+        hour: utils.strPad(h),
+        min: utils.strPad(m),
+        sec: utils.strPad(s),
+      },
+      transformMin: handM,
+      transformSec: handS,
+      dTri: `M${handS}L${handM}L${tri}Z`,
+    });
 
     window.requestAnimationFrame(draw);
   };
 
   React.useEffect(() => {
     draw();
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -92,13 +107,18 @@ const SvgClockComponent: React.FC<SvgClockComponentProps> = (props: SvgClockComp
           {`text {font - family: 'Helvetica Bold', 'Helvetica', sans-serif; font-weight: bold; }`}
         </style>
         <SvgCircle cx="256" cy="256" r="256" className="f1" />
-        <SvgCircle cx="256" cy="256" r="192" className="s2" fill="none" style={{strokeWidth: 4}} />
-        <SvgCircle cx="256" cy="256" r="112" className="s2" fill="none" style={{strokeWidth: 4}} />
-        <SvgTriangle d={state.dTri} className="f2 s2" style={{ strokeWidth: "80", strokeLinejoin: "round"}} />
+        <SvgCircle cx="256" cy="256" r="192" className="s2" fill="none" style={{ strokeWidth: 4 }} />
+        <SvgCircle cx="256" cy="256" r="112" className="s2" fill="none" style={{ strokeWidth: 4 }} />
+        <SvgTriangle d={state.dTri} className="f2 s2" style={{ strokeWidth: "80", strokeLinejoin: "round" }} />
         <SvgHand cirleElement={handCircle} x="0" y="14" transform="matrix(1,0,0,1,256,256)" style={HandsDisplayStyle} className="f2 displayH" text={state.time.hour} />
         <SvgHand cirleElement={handCircle} x="0" y="14" transform={`matrix(1,0,0,1,${state.transformMin})`} style={HandsDisplayStyle} className="f2 displayM" text={state.time.min} />
         <SvgHand cirleElement={handCircle} x="0" y="14" transform={`matrix(1,0,0,1,${state.transformSec})`} style={HandsDisplayStyle} className="f2 displayS" text={state.time.sec} />
       </svg>
+      <span className="text-container">
+        {state.time.week}, {state.time.day}
+        <hr className="custom-style" />
+        {state.time.month} {state.time.year}
+      </span>
     </div>
   );
 };

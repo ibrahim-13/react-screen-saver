@@ -1,5 +1,7 @@
 .clock-container {
-  background: #F3F6F7;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 17px;
   -webkit-font-smoothing: antialiased;
   -webkit-font-feature-settings: "tnum";
   -moz-font-feature-settings: "tnum";
@@ -8,6 +10,33 @@
   backface-visibility: hidden;
   stroke-width: 0;
 }
+
+.text-container {
+  margin: auto;
+  font-size: 6vw;
+  color: darksalmon;
+  text-shadow: 0px 2px 3px darkred;
+}
+
+/* hr {
+  color: black;
+  background-color: goldenrod;
+  border: none;
+  height: 3px;
+} */
+
+hr.custom-style  {
+  height: 10px;
+  border: 1;
+  border-color: black;
+  box-shadow: inset 0 9px 9px -3px crimson;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  }
+
 .clock-container .f1 {
   fill: #181F22;
 }
@@ -15,7 +44,7 @@
   fill: #F3F6F7;
 }
 .clock-container.svg-clock-frog {
-  background: #181F22;
+  background: transparent;
 }
 .clock-container.svg-clock-frog .f1 {
   fill: #0EF998;
@@ -30,7 +59,7 @@
   stroke: #181F22;
 }
 .clock-container.svg-clock-sol {
-  background: #181F22;
+  background: transparent;
 }
 .clock-container.svg-clock-sol .f1 {
   fill: #F90E5A;
@@ -45,7 +74,7 @@
   stroke: #181F22;
 }
 .clock-container.svg-clock-wasp {
-  background: #181F22;
+  background: transparent;
 }
 .clock-container.svg-clock-wasp .f1 {
   fill: #FFF532;
@@ -60,7 +89,7 @@
   stroke: #181F22;
 }
 .clock-container.svg-clock-terra {
-  background: #E76054;
+  background: transparent;
 }
 .clock-container.svg-clock-terra .f1 {
   fill: #ECF1CC;
@@ -73,11 +102,4 @@
 }
 .clock-container.svg-clock-terra .s2 {
   stroke: #E76054;
-}
-
-.clock-container svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0px);
 }
