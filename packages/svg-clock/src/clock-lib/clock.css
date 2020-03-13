@@ -1,0 +1,90 @@
+svg {
+  position: absolute;
+  width: 80vh;
+  height: 80vh;
+  max-width: 80vw;
+  max-height: 80vw;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0px);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-feature-settings: "tnum";
+  -moz-font-feature-settings: "tnum";
+  -ms-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
+  backface-visibility: hidden;
+  stroke-width: 0;
+}
+
+.clock-container {
+  background: #F3F6F7;
+}
+.clock-container .f1 {
+  fill: #181F22;
+}
+.clock-container .f2 {
+  fill: #F3F6F7;
+}
+.clock-container.svg-clock-frog {
+  background: #181F22;
+}
+.clock-container.svg-clock-frog .f1 {
+  fill: #0EF998;
+}
+.clock-container.svg-clock-frog .s1 {
+  stroke: #0EF998;
+}
+.clock-container.svg-clock-frog .f2 {
+  fill: #181F22;
+}
+.clock-container.svg-clock-frog .s2 {
+  stroke: #181F22;
+}
+.clock-container.svg-clock-sol {
+  background: #181F22;
+}
+.clock-container.svg-clock-sol .f1 {
+  fill: #F90E5A;
+}
+.clock-container.svg-clock-sol .s1 {
+  stroke: #F90E5A;
+}
+.clock-container.svg-clock-sol .f2 {
+  fill: #181F22;
+}
+.clock-container.svg-clock-sol .s2 {
+  stroke: #181F22;
+}
+.clock-container.svg-clock-wasp {
+  background: #181F22;
+}
+.clock-container.svg-clock-wasp .f1 {
+  fill: #FFF532;
+}
+.clock-container.svg-clock-wasp .s1 {
+  stroke: #FFF532;
+}
+.clock-container.svg-clock-wasp .f2 {
+  fill: #181F22;
+}
+.clock-container.svg-clock-wasp .s2 {
+  stroke: #181F22;
+}
+.clock-container.svg-clock-terra {
+  background: #E76054;
+}
+.clock-container.svg-clock-terra .f1 {
+  fill: #ECF1CC;
+}
+.clock-container.svg-clock-terra .s1 {
+  stroke: #ECF1CC;
+}
+.clock-container.svg-clock-terra .f2 {
+  fill: #E76054;
+}
+.clock-container.svg-clock-terra .s2 {
+  stroke: #E76054;
+}
